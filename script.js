@@ -1,10 +1,14 @@
 
 //Initialize the variables;
 let firstNum = "";
-let currentNumo = "";
-let operator;
-let displayValue = "";
+let currentNum = "";
+let operator = "";
 
+const numbers = document.querySelectorAll(".number")
+const operators = document.querySelectorAll(".operator")
+const clear = document.getElementById("clear-button")
+const equal = document.getElementById("equals")
+const display = document.getElementById("display")
 //Operater function based on operator
 function operate(operator, firstNum, secondNum) {
   let result;
@@ -28,38 +32,47 @@ function operate(operator, firstNum, secondNum) {
 //functions that do the math
 const add = function (firstNum, secondNum) {
 
-  let result = firstNum + secondNum;
-  return result;
+  return firstNum + secondNum;
 }
 
-const substract = function (firstNum, secondNum) {
-  let subs = firstNum - secondNum;
-  return subs;
+const substract = function (firstNum, currentNum) {
+  return firstNum - currentNum;
+
 }
 
-const multiply = function (firstNum, secondNum) {
-  let mult = firstNum * secondNum;
-  return mult;
+const multiply = function (firstNum, currentNum) {
+  return firstNum * currentNum;
+
 }
 
-const divide = function (firstNum, secondNum) {
-  let div = firstNum / secondNum;
-  return div;
+const divide = function (firstNum, currentNum) {
+  return firstNum / currentNum;
 }
-//We select all of the numbers
-const numbers = document.querySelectorAll(".number")
+
+
+
 //For each we select the display and display the current number
 numbers.forEach(button => {
   button.addEventListener('click', function () {
-    const display = document.getElementById("display")
-    displayValue = button.textContent
-    display.innerHTML += displayValue;
+    currentNum += button.textContent
+    display.textContent = currentNum;;
   })
 })
 
-const operators = document.querySelectorAll(".operator")
 operators.forEach((op) => op.addEventListener("click", function () {
-  operator = op.textContent;
-  console.log(operator);
+  operator = op;
+  firstNum = currentNum;
+  currentNum = "";
 }))
 
+clear.addEventListener("click", function () {
+  operator = "";
+  firstNum = "";
+  currentNum = "";
+  display.textContent = currentNum;
+})
+
+equal.addEventListener("click", function () {
+  operate()
+  display.textContent = operate(operator, firstNum, currentNum)
+})
