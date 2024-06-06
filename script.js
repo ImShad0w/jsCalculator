@@ -9,58 +9,19 @@ const operators = document.querySelectorAll(".operator")
 const clear = document.getElementById("clear-button")
 const equal = document.getElementById("equals")
 const display = document.getElementById("display")
-//Operater function based on operator
-function operate(operator, firstNum, secondNum) {
-  let result;
-  switch (operator) {
-    case "+":
-      result = add(firstNum, secondNum)
-      break
-    case "-":
-      result = substract(firstNum, secondNum)
-      break
-    case "*":
-      result = multiply(firstNum, secondNum)
-      break
-    case "/":
-      result = divide(firstNum, secondNum)
-      break
-  }
-  return result;
-}
-
-//functions that do the math
-const add = function (firstNum, secondNum) {
-
-  return firstNum + secondNum;
-}
-
-const substract = function (firstNum, currentNum) {
-  return firstNum - currentNum;
-
-}
-
-const multiply = function (firstNum, currentNum) {
-  return firstNum * currentNum;
-
-}
-
-const divide = function (firstNum, currentNum) {
-  return firstNum / currentNum;
-}
 
 
 
 //For each we select the display and display the current number
 numbers.forEach(button => {
   button.addEventListener('click', function () {
-    currentNum += button.textContent
-    display.textContent = currentNum;;
+    currentNum += button.textContent;
+    display.textContent = currentNum;
   })
 })
 
 operators.forEach((op) => op.addEventListener("click", function () {
-  operator = op;
+  operator = op.textContent;
   firstNum = currentNum;
   currentNum = "";
 }))
@@ -73,6 +34,22 @@ clear.addEventListener("click", function () {
 })
 
 equal.addEventListener("click", function () {
-  operate()
-  display.textContent = operate(operator, firstNum, currentNum)
+  let result = operate(operator, firstNum, currentNum)
+  console.log(result)
 })
+
+//Operater function based on operator
+function operate(operator, firstNum, currentNum) {
+  let operation;
+  switch (operator) {
+    case "+":
+      operation = firstNum + currentNum;
+    case "-":
+      operation = firstNum - currentNum;
+    case "*":
+      operation = firstNum * currentNum;
+    case "/":
+      operation = firstNum / currentNum;
+  }
+  return operation
+}
