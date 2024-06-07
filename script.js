@@ -35,21 +35,26 @@ clear.addEventListener("click", function () {
 
 equal.addEventListener("click", function () {
   let result = operate(operator, firstNum, currentNum)
-  console.log(result)
+  currentNum = result
+  display.textContent = result
 })
 
 //Operater function based on operator
 function operate(operator, firstNum, currentNum) {
   let operation;
-  switch (operator) {
-    case "+":
-      operation = firstNum + currentNum;
-    case "-":
-      operation = firstNum - currentNum;
-    case "*":
-      operation = firstNum * currentNum;
-    case "/":
-      operation = firstNum / currentNum;
+  firstNum = Number(firstNum)
+  currentNum = Number(currentNum)
+  if (operator === "+") {
+    operation = firstNum + currentNum
   }
-  return operation
+  else if (operator === "-") {
+    operation = firstNum - currentNum
+  }
+  else if (operator === "*") {
+    operation = firstNum * currentNum
+  }
+  else {
+    operation = firstNum / currentNum
+  }
+  return operation;
 }
