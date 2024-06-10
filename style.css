@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+body{
+  background-color:#BEEAF2
+}
+
+#container{
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  flex-direction: column;
+  border: solid black 2px;
+  height: 650px;
+  width: 400px;
+  margin:auto;
+  margin-top:4vw;
+  border-radius: 25px;
+  background-color: #1A1B28;
+}
+
+#display{
+  display: flex;
+  height: 50px;
+  margin: 10px;
+  margin-top:50px;
+  margin-bottom: 30px;
+  padding: 20px;
+  font-size: 50px;
+  justify-content: right;
+  align-items: flex-end;
+  background-color: #1A1B28;
+  color: white;
+}
+
+button{
+  height:80px;
+  width:75px;
+  font-size: 30px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  color: white;
+
+}
+.button-row{
+  display:flex;
+  gap:20px;
+  margin-bottom:10px;
+  justify-content: center;
+  
+}
+.number{
+  background-color: #1E2435;
+}
+
+#float-button{
+  background-color: #1E2435;
+}
+
+#clear-button{
+  background-color: #52C9DC
+}
+
+#delete-button{
+  background-color: #52C9DC;
+}
+
+.operator{
+  background-color:  #52C9DC;
+}
+#equals{
+  background-color:  #52C9DC;
+  width: 170px;
+}
+
+
+.number:active{
+  background-color: white;
+}
+
+.operator:active{
+  background-color: white;
+}
+
+#clear-button:active{
+  background-color: white;
+}
+
+#delete-button:active{
+  background-color: white;
+}
+
+#equals:active{
+  background-color: white;
+}
